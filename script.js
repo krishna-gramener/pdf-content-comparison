@@ -1,4 +1,3 @@
-
 const GEMINI_API_URL =
   "https://llmfoundry.straive.com/gemini/v1beta/models/gemini-1.5-flash-latest:generateContent";
 
@@ -39,12 +38,10 @@ init();
  * Initialize the application
  */
 async function init() {
-  token = await fetch("https://llmfoundry.straive.com/token", {
+  token = (await fetch("https://llmfoundry.straive.com/token", {
     credentials: "include",
-  }).then((r) => r.json());
+  }).then((r) => r.json())).token;
 
-  console.log("Token:", token);
-  token=token.token;
   if (!token) {
     document.getElementById("main-container").classList.add("d-none");
     const url =
@@ -225,7 +222,7 @@ async function callGeminiApi(base64Pdf) {
         {
           parts: [
             {
-              text: "Extract all text from this PDF. The text is in Arabic. Return only the extracted text without any additional comments.",
+              text: "Extract all text from this PDF. Return only the extracted text without any additional comments.",
             },
             {
               inline_data: {
