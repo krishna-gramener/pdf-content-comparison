@@ -1,6 +1,4 @@
-// Gemini API key - Replace with your actual API key
-// Note: In production, this should be stored securely
-const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";
+
 const GEMINI_API_URL =
   "https://llmfoundry.straive.com/gemini/v1beta/models/gemini-1.5-flash-latest:generateContent";
 
